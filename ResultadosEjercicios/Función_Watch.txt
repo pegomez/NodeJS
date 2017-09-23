@@ -1,0 +1,22 @@
+Código:
+
+***************************************************************
+var fs=require("fs");
+console.log("inicio");
+var config=JSON.parse(fs.readFileSync("config.json"));
+console.log("Configuración inicial: ",config);
+fs.watchFile("config.json",function(current,previous){
+	console.log("Configuracion modificada");
+	config=JSON.parse(fs.readFileSync("config.json"));
+	console.log("nuevo archivo",config);
+});
+***************************************************************
+
+Salida:
+Inicial:
+  inicio
+  Configuración inicial:  { port: '1337', host: '127.0.0.1' }
+Una vez que modificamos el archivo config.json y salvamos los
+cambios:
+  Configuracion modificada
+  nuevo archivo { port: '1340', host: '127.0.0.1' }

@@ -1,0 +1,59 @@
+Código:
+***************************************************************
+//1-Usar métodos síncronos y asíncronos para
+//leer archivos
+
+var fs=require("fs");
+console.log("Comienza la ejecución");
+
+//método asíncrono readFile
+fs.readFile("sample.txt",function(error,data){
+	console.log("lectura asíncrona-contenidos del archivo: "+data);
+});
+console.log("estamos en ello");
+
+//fs.readFileSync
+console.log("lectura síncrona");
+var contenido=fs.readFileSync("sample.txt");//,function(error,data){
+console.log("contenidos del archivo: "+contenido);
+console.log("archivo leído");
+***************************************************************
+
+Salida:
+1. Comienza la ejecución
+3. estamos en ello
+4. lectura síncrona
+5. contenidos del archivo: Ejemplo
+6. archivo leído
+2. lectura asíncrona-contenidos del archivo: Ejemplo
+
+Los números reflejan el orden en que están definidos los
+console.log en el código. De esta manera, el método
+readFile se ejecuta de manera asíncrona.
+
+
+Para la segunda parte de leer ficheros
+***************************************************************
+var fs=require("fs");
+console.log("Inicio");
+var contenido=fs.readFileSync("config2.json");
+console.log("Contenidos "+contenido);
+
+var config=JSON.parse(contenido);
+console.log("config",config);
+console.log("username=",config.username);
+***************************************************************
+
+Salida:
+Inicio
+Contenidos {
+	"username":"pepe",
+	"api_key":"clave",
+	"nombre":"Pepe Clave Lopez",
+	"version":"124"
+}
+config { username: 'pepe',
+  api_key: 'clave',
+  nombre: 'Pepe Clave Lopez',
+  version: '124' }
+username= pepe

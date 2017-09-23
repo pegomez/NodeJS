@@ -79,5 +79,5 @@ fs.watchFile("config.json",function(){
 	server.listen(config.port,config.host,function(){
 		console.log("Escuchando "+config.host+":"+config.port)
 	});
-})
+});
 */

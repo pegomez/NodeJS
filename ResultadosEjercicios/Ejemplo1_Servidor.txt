@@ -1,0 +1,31 @@
+Código:
+
+var http=require("http");
+console.log("Inicio");
+var host="127.0.0.1";
+var port=1337;
+var server=http.createServer(function(request,response){
+	console.log("Petición recibida: "+request.url);
+	response.writeHead(200,{"Content-type":"text/plain"});
+	response.end("Hola mundo");
+});
+server.listen(port,host,function(){
+	console.log("Escuchando "+host+":"+port)
+});
+
+Salida:
+
+Tras ejecutar el código vemos lo siguiente por pantalla:
+Inicio
+Escuchando 127.0.0.1:1337
+Una vez ejecutamos el navegador y nos situamos en
+127.0.0.1:1337 lo que ocurre es que se nos muestra el Hola mundo
+y a través del terminal vemos lo siguiente (tras refrescar 3 veces):
+
+Petición recibida: /
+Petición recibida: /favicon.ico
+Petición recibida: /
+Petición recibida: /favicon.ico
+Petición recibida: /
+Petición recibida: /favicon.ico
+ 

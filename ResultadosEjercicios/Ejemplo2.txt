@@ -1,0 +1,26 @@
+Código:
+***************************************************************
+var fs=require("fs");
+console.log("Inicio");
+
+//escritura síncrona
+fs.writeFileSync("nuevo.txt","Hola mundo sinc");
+console.log("fin");
+
+
+//el método asíncrono se suele usar para escribir logs
+
+fs.writeFile("nuevoAsinc.txt","Hola mundo asinc",function(error){
+	console.log("terminé de escribir el archivo asinc");
+});
+console.log("escribiendo el archivo");
+***************************************************************
+
+En este caso, hemos probado los métodos de escritura síncrona y asíncrona.
+Como resultado, se han creado dos ficheros (los que se indican en el código)
+y se ha obtenido la siguiente salida:
+
+Inicio
+fin
+escribiendo el archivo
+terminé de escribir el archivo asinc
