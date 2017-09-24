@@ -25,7 +25,7 @@ var config=JSON.parse(fs.readFileSync("config.json"));
 var host=config.host;
 var port=config.port;
 var exp=require("express");
-var app=exp(); 
+var app=exp();
 
 //app.use(app.router);
 app.use(exp.static(__dirname + "/public"));
@@ -50,7 +50,7 @@ var config=JSON.parse(fs.readFileSync("config.json"));
 var host=config.host;
 var port=config.port;
 var exp=require("express");
-var app=exp(); 
+var app=exp();
 
 //app.use(app.router);
 app.use(exp.static(__dirname + "/public"));
@@ -75,9 +75,11 @@ app.get("/user/:id",function(request,response){
 	var user=users[request.params.id];
 	if(user){
 		response.send("Usuario: "+user.name+" cuenta: "+user.cuenta);
+    console.log("El usuario se ha encontrado con éxito.");
 	}
 	else{
 		response.send("usuario no existe");
+    console.log("El usuario no se ha encontrado.");
 	}
 	response.send
 })

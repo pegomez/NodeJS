@@ -1,0 +1,25 @@
+Código:
+
+var fs=require("fs");
+var config=JSON.parse(fs.readFileSync("config.json"));
+var host=config.host;
+var port=config.port;
+var exp=require("express");
+var app=exp(); //el tutorial indicaba exp.createServer()
+
+//app.use(app.router);
+app.use(exp.static(__dirname + "/public"));
+
+app.get("/",function(request,response){
+	response.send("hola");
+});
+console.log("Servidor escuchando en "+host+":"+port);
+app.listen(port,host);
+
+Salida:
+
+En el terminal
+Servidor escuchando en 127.0.0.1:1340
+
+Posteriormente, cuando abrimos el navegador con la dirección que se nos indica
+en el terminal nos damos cuenta de que sale la palabra "hola".
