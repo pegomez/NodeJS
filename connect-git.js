@@ -3,7 +3,8 @@
 /*
 var https=require("https");
 
-var username="jgallud";
+//var username="jgallud";
+var username="pegomez";
 
 var options={
 	host:"api.github.com",
@@ -59,7 +60,7 @@ request.end();
 /*
 var https=require("https");
 
-var username="jgallud";
+var username="pegomez";
 
 var options={
 	host:"api.github.com",
@@ -89,7 +90,7 @@ request.end();
 */
 
 //4- Reutilizar el código transformándolo en una función
-/*
+
 var https=require("https");
 
 function getRepos(username,callback){
@@ -134,4 +135,10 @@ getRepos("tesorieror",function(repos){
 		console.log("tesoriero tiene "+repos.length + " repositorios");
 		console.log("Repos=",repos);
 	});
-*/
+
+  getRepos("pegomez",function(repos){
+  		console.log("pegomez tiene "+repos.length + " repositorios");
+  		console.log("Repos=",repos);
+  	});
+
+    // ¿Por qué se ejecuta de abajo a arriba?
